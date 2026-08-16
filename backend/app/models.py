@@ -33,6 +33,12 @@ class User(Base):
 class Asset(Base):
     __tablename__ = "assets"
 
+
+    user_id: Mapped[int] = mapped_column(
+    ForeignKey("users.id"),
+    nullable=False
+)
+
     id: Mapped[int] = mapped_column(
         Integer,
         primary_key=True,
@@ -131,4 +137,73 @@ class Risk(Base):
     mitigation_plan: Mapped[str | None] = mapped_column(
         Text,
         nullable=True
+    )
+
+class Control(Base):
+    __tablename__ = "controls"
+
+    id: Mapped[int] = mapped_column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    name: Mapped[str] = mapped_column(
+        String(200),
+        nullable=False
+    )
+
+    description: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
+    control_type: Mapped[str] = mapped_column(
+        String(50),
+        nullable=False
+    )
+
+    implementation_status: Mapped[str] = mapped_column(
+        String(50),
+        nullable=False,
+        default="Not Implemented"
+    )
+
+    nist_csf: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True
+    )
+
+    iso_27001: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True
+    )
+
+    cis_control: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True
+    )
+
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id"),
+        nullable=False
+    )
+
+class RiskControl(Base):
+    __tablename__ = "risk_controls"
+
+    id: Mapped[int] = mapped_column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    risk_id: Mapped[int] = mapped_column(
+        ForeignKey("risks.id"),
+        nullable=False
+    )
+
+    control_id: Mapped[int] = mapped_column(
+        ForeignKey("controls.id"),
+        nullable=False
     )

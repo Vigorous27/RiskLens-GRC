@@ -26,9 +26,10 @@ class AssetUpdate(BaseModel):
 
 class AssetResponse(AssetBase):
     id: int
-
+    user_id: int
+    
     model_config = ConfigDict(from_attributes=True)
-
+    
 class RiskCreate(BaseModel):
     title: str
     asset_id: int
@@ -110,3 +111,91 @@ class UserResponse(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+class ControlResponse(BaseModel):
+    id: int
+    framework: str
+    control_code: str
+    title: str
+    description: str
+
+    model_config = ConfigDict(
+        from_attributes=True
+    )
+
+
+class RiskControlCreate(BaseModel):
+    control_id: int
+
+class SeverityDistribution(BaseModel):
+    Low: int
+    Medium: int
+    High: int
+    Critical: int
+
+
+class DashboardSummary(BaseModel):
+    total_assets: int
+    total_risks: int
+    open_risks: int
+    critical_risks: int
+    severity_distribution: SeverityDistribution
+
+class ControlBase(BaseModel):
+    name: str
+    description: str
+    control_type: str
+    implementation_status: str = "Not Implemented"
+
+    nist_csf: str | None = None
+    iso_27001: str | None = None
+    cis_control: str | None = None
+
+
+class ControlCreate(ControlBase):
+    pass
+
+
+class ControlUpdate(BaseModel):
+    name: str | None = None
+    description: str | None = None
+    control_type: str | None = None
+    implementation_status: str | None = None
+
+    nist_csf: str | None = None
+    iso_27001: str | None = None
+    cis_control: str | None = None
+
+
+class ControlResponse(ControlBase):
+    id: int
+    user_id: int
+
+    model_config = ConfigDict(
+        from_attributes=True
+    )
+
+
+class RiskControlCreate(BaseModel):
+    control_id: int 
+
+class ControlCoverage(BaseModel):
+    total_controls: int
+    implemented_controls: int
+    coverage_percentage: float
+
+class HeatMapPoint(BaseModel):
+    likelihood: int
+    impact: int
+    count: int
+
+
+class PriorityRisk(BaseModel):
+    id: int
+    title: str
+    asset_id: int
+    likelihood: int
+    impact: int
+    risk_score: int
+    severity: str
+    status: str

@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, HTTPException, status
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app import models, schemas
@@ -190,8 +190,14 @@ def root():
 def create_asset(
     asset: schemas.AssetCreate,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    new_asset = models.Asset(**asset.model_dump())
+    new_asset = models.Asset(
+        **asset.model_dump(),
+        user_id=current_user.id,
+    )
 
     db.add(new_asset)
     db.commit()
@@ -206,14 +212,20 @@ def create_asset(
 )
 def get_assets(
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
     assets = db.scalars(
         select(models.Asset)
+        .where(
+            models.Asset.user_id
+            == current_user.id
+        )
         .order_by(models.Asset.id)
     ).all()
 
     return assets
-
 
 @app.get(
     "/assets/{asset_id}",
@@ -222,8 +234,17 @@ def get_assets(
 def get_asset(
     asset_id: int,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    asset = db.get(models.Asset, asset_id)
+    asset = db.scalar(
+        select(models.Asset).where(
+            models.Asset.id == asset_id,
+            models.Asset.user_id
+            == current_user.id,
+        )
+    )
 
     if not asset:
         raise HTTPException(
@@ -242,8 +263,17 @@ def update_asset(
     asset_id: int,
     asset_update: schemas.AssetUpdate,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    asset = db.get(models.Asset, asset_id)
+    asset = db.scalar(
+        select(models.Asset).where(
+            models.Asset.id == asset_id,
+            models.Asset.user_id
+            == current_user.id,
+        )
+    )
 
     if not asset:
         raise HTTPException(
@@ -271,8 +301,17 @@ def update_asset(
 def delete_asset(
     asset_id: int,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    asset = db.get(models.Asset, asset_id)
+    asset = db.scalar(
+        select(models.Asset).where(
+            models.Asset.id == asset_id,
+            models.Asset.user_id
+            == current_user.id,
+        )
+    )
 
     if not asset:
         raise HTTPException(
@@ -293,8 +332,14 @@ def delete_asset(
 def create_risk(
     risk: schemas.RiskCreate,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
 ):
-    asset = db.get(models.Asset, risk.asset_id)
+    asset = db.scalar(
+        select(models.Asset).where(
+            models.Asset.id == risk.asset_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
 
     if not asset:
         raise HTTPException(
@@ -325,9 +370,21 @@ def create_risk(
 )
 def get_risks(
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
     risks = db.scalars(
         select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id
+            == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id
+            == current_user.id
+        )
         .order_by(models.Risk.id)
     ).all()
 
@@ -340,8 +397,21 @@ def get_risks(
 def get_risk(
     risk_id: int,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    risk = db.get(models.Risk, risk_id)
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
 
     if not risk:
         raise HTTPException(
@@ -351,6 +421,9 @@ def get_risk(
 
     return risk
 
+
+
+    
 @app.put(
     "/risks/{risk_id}",
     response_model=schemas.RiskResponse,
@@ -359,8 +432,21 @@ def update_risk(
     risk_id: int,
     risk_update: schemas.RiskUpdate,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    risk = db.get(models.Risk, risk_id)
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
 
     if not risk:
         raise HTTPException(
@@ -373,9 +459,11 @@ def update_risk(
     )
 
     if "asset_id" in update_data:
-        asset = db.get(
-            models.Asset,
-            update_data["asset_id"]
+        asset = db.scalar(
+            select(models.Asset).where(
+                models.Asset.id == update_data["asset_id"],
+                models.Asset.user_id == current_user.id,
+            )
         )
 
         if not asset:
@@ -411,8 +499,21 @@ def update_risk(
 def delete_risk(
     risk_id: int,
     db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
 ):
-    risk = db.get(models.Risk, risk_id)
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
 
     if not risk:
         raise HTTPException(
@@ -424,3 +525,499 @@ def delete_risk(
     db.commit()
 
     return None
+
+
+
+@app.post(
+    "/controls",
+    response_model=schemas.ControlResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def create_control(
+    control: schemas.ControlCreate,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    new_control = models.Control(
+        **control.model_dump(),
+        user_id=current_user.id,
+    )
+
+    db.add(new_control)
+    db.commit()
+    db.refresh(new_control)
+
+    return new_control
+
+
+@app.get(
+    "/controls",
+    response_model=list[schemas.ControlResponse],
+)
+def get_controls(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    controls = db.scalars(
+        select(models.Control)
+        .where(
+            models.Control.user_id == current_user.id
+        )
+        .order_by(models.Control.id)
+    ).all()
+
+    return controls
+
+@app.get(
+    "/controls/{control_id}",
+    response_model=schemas.ControlResponse,
+)
+def get_control(
+    control_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    control = db.scalar(
+        select(models.Control).where(
+            models.Control.id == control_id,
+            models.Control.user_id == current_user.id,
+        )
+    )
+
+    if not control:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control not found",
+        )
+
+    return control
+
+@app.put(
+    "/controls/{control_id}",
+    response_model=schemas.ControlResponse,
+)
+def update_control(
+    control_id: int,
+    control_update: schemas.ControlUpdate,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    control = db.scalar(
+        select(models.Control).where(
+            models.Control.id == control_id,
+            models.Control.user_id == current_user.id,
+        )
+    )
+
+    if not control:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control not found",
+        )
+
+    update_data = control_update.model_dump(
+        exclude_unset=True
+    )
+
+    for field, value in update_data.items():
+        setattr(control, field, value)
+
+    db.commit()
+    db.refresh(control)
+
+    return control
+
+@app.delete(
+    "/controls/{control_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+)
+def delete_control(
+    control_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    control = db.scalar(
+        select(models.Control).where(
+            models.Control.id == control_id,
+            models.Control.user_id == current_user.id,
+        )
+    )
+
+    if not control:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control not found",
+        )
+
+    mappings = db.scalars(
+        select(models.RiskControl).where(
+            models.RiskControl.control_id == control_id
+        )
+    ).all()
+
+    for mapping in mappings:
+        db.delete(mapping)
+
+    db.delete(control)
+    db.commit()
+
+    return None
+
+@app.post(
+    "/risks/{risk_id}/controls",
+    status_code=status.HTTP_201_CREATED,
+)
+def map_control_to_risk(
+    risk_id: int,
+    mapping: schemas.RiskControlCreate,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
+
+    if not risk:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Risk not found",
+        )
+
+    control = db.scalar(
+        select(models.Control).where(
+            models.Control.id == mapping.control_id,
+            models.Control.user_id == current_user.id,
+        )
+    )
+
+    if not control:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control not found",
+        )
+
+    existing_mapping = db.scalar(
+        select(models.RiskControl).where(
+            models.RiskControl.risk_id == risk_id,
+            models.RiskControl.control_id == mapping.control_id,
+        )
+    )
+
+    if existing_mapping:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Control already mapped to this risk",
+        )
+
+    new_mapping = models.RiskControl(
+        risk_id=risk_id,
+        control_id=mapping.control_id,
+    )
+
+    db.add(new_mapping)
+    db.commit()
+
+    return {
+        "message": "Control mapped to risk successfully"
+    }
+
+@app.get(
+    "/risks/{risk_id}/controls",
+    response_model=list[schemas.ControlResponse],
+)
+def get_risk_controls(
+    risk_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
+
+    if not risk:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Risk not found",
+        )
+
+    controls = db.scalars(
+        select(models.Control)
+        .join(
+            models.RiskControl,
+            models.RiskControl.control_id == models.Control.id,
+        )
+        .where(
+            models.RiskControl.risk_id == risk_id,
+            models.Control.user_id == current_user.id,
+        )
+        .order_by(models.Control.id)
+    ).all()
+
+    return controls
+
+
+@app.delete(
+    "/risks/{risk_id}/controls/{control_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+)
+def remove_control_from_risk(
+    risk_id: int,
+    control_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    risk = db.scalar(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Risk.id == risk_id,
+            models.Asset.user_id == current_user.id,
+        )
+    )
+
+    if not risk:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Risk not found",
+        )
+
+    control = db.scalar(
+        select(models.Control).where(
+            models.Control.id == control_id,
+            models.Control.user_id == current_user.id,
+        )
+    )
+
+    if not control:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control not found",
+        )
+
+    mapping = db.scalar(
+        select(models.RiskControl).where(
+            models.RiskControl.risk_id == risk_id,
+            models.RiskControl.control_id == control_id,
+        )
+    )
+
+    if not mapping:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Control is not mapped to this risk",
+        )
+
+    db.delete(mapping)
+    db.commit()
+
+    return None
+
+@app.get(
+    "/dashboard/summary",
+    response_model=schemas.DashboardSummary,
+)
+def get_dashboard_summary(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(
+        get_current_user
+    ),
+):
+    total_assets = db.scalar(
+        select(func.count(models.Asset.id))
+        .where(
+            models.Asset.user_id == current_user.id
+        )
+    ) or 0
+
+    total_risks = db.scalar(
+        select(func.count(models.Risk.id))
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id
+        )
+    ) or 0
+
+    open_risks = db.scalar(
+        select(func.count(models.Risk.id))
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id,
+            models.Risk.status == "Open",
+        )
+    ) or 0
+
+    critical_risks = db.scalar(
+        select(func.count(models.Risk.id))
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id,
+            models.Risk.severity == "Critical",
+        )
+    ) or 0
+
+    severity_distribution = {
+        "Low": 0,
+        "Medium": 0,
+        "High": 0,
+        "Critical": 0,
+    }
+
+    severity_rows = db.execute(
+        select(
+            models.Risk.severity,
+            func.count(models.Risk.id),
+        )
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id
+        )
+        .group_by(models.Risk.severity)
+    ).all()
+
+    for severity, count in severity_rows:
+        if severity in severity_distribution:
+            severity_distribution[severity] = count
+
+    return {
+        "total_assets": total_assets,
+        "total_risks": total_risks,
+        "open_risks": open_risks,
+        "critical_risks": critical_risks,
+        "severity_distribution": severity_distribution,
+    }
+
+@app.get(
+    "/dashboard/control-coverage",
+    response_model=schemas.ControlCoverage,
+)
+def get_control_coverage(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    total_controls = db.scalar(
+        select(func.count(models.Control.id))
+        .where(
+            models.Control.user_id == current_user.id
+        )
+    ) or 0
+
+    implemented_controls = db.scalar(
+        select(func.count(models.Control.id))
+        .where(
+            models.Control.user_id == current_user.id,
+            models.Control.implementation_status == "Implemented",
+        )
+    ) or 0
+
+    if total_controls == 0:
+        coverage_percentage = 0.0
+    else:
+        coverage_percentage = round(
+            (implemented_controls / total_controls) * 100,
+            2
+        )
+
+    return {
+        "total_controls": total_controls,
+        "implemented_controls": implemented_controls,
+        "coverage_percentage": coverage_percentage,
+    }
+
+
+@app.get(
+    "/dashboard/heatmap",
+    response_model=list[schemas.HeatMapPoint],
+)
+def get_risk_heatmap(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    rows = db.execute(
+        select(
+            models.Risk.likelihood,
+            models.Risk.impact,
+            func.count(models.Risk.id),
+        )
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id
+        )
+        .group_by(
+            models.Risk.likelihood,
+            models.Risk.impact,
+        )
+        .order_by(
+            models.Risk.likelihood,
+            models.Risk.impact,
+        )
+    ).all()
+
+    return [
+        {
+            "likelihood": likelihood,
+            "impact": impact,
+            "count": count,
+        }
+        for likelihood, impact, count in rows
+    ]
+
+
+@app.get(
+    "/dashboard/priority-risks",
+    response_model=list[schemas.PriorityRisk],
+)
+def get_priority_risks(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    risks = db.scalars(
+        select(models.Risk)
+        .join(
+            models.Asset,
+            models.Risk.asset_id == models.Asset.id,
+        )
+        .where(
+            models.Asset.user_id == current_user.id
+        )
+        .order_by(
+            models.Risk.risk_score.desc(),
+            models.Risk.id.desc(),
+        )
+        .limit(5)
+    ).all()
+
+    return risks
