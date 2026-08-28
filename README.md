@@ -1,8 +1,8 @@
-\# RiskLens GRC
+﻿# RiskLens GRC
 
 
 
-\*\*RiskLens GRC\*\* is a full-stack cybersecurity Governance, Risk, and Compliance platform designed to help organizations identify assets, assess cybersecurity risks, track security controls, map safeguards to recognized security frameworks, and generate actionable cybersecurity assessment reports.
+**RiskLens GRC** is a full-stack cybersecurity Governance, Risk, and Compliance platform designed to help organizations identify assets, assess cybersecurity risks, track security controls, map safeguards to recognized security frameworks, and generate actionable cybersecurity assessment reports.
 
 
 
@@ -10,15 +10,15 @@ The platform combines traditional GRC workflows with AI-assisted mitigation reco
 
 
 
-\---
+---
 
 
 
-\## Dashboard
+## Dashboard
 
 
 
-!\[RiskLens GRC Dashboard](docs/screenshots/1-dashboard.png)
+![RiskLens GRC Dashboard](docs/screenshots/1-dashboard.png)
 
 
 
@@ -30,31 +30,31 @@ The dashboard provides visibility into:
 
 
 
-\- Total tracked assets
+- Total tracked assets
 
-\- Open cybersecurity risks
+- Open cybersecurity risks
 
-\- Critical risks
+- Critical risks
 
-\- Overall risk distribution
+- Overall risk distribution
 
-\- Security control coverage
+- Security control coverage
 
-\- Likelihood × impact risk heat map
+- Likelihood Ã— impact risk heat map
 
-\- Priority cybersecurity risks
-
-
-
-\---
+- Priority cybersecurity risks
 
 
 
-\## Key Features
+---
 
 
 
-\### Asset Management
+## Key Features
+
+
+
+### Asset Management
 
 
 
@@ -66,23 +66,23 @@ Assets can contain information such as:
 
 
 
-\- Asset name
+- Asset name
 
-\- Asset type
+- Asset type
 
-\- Asset owner
+- Asset owner
 
-\- Business criticality
+- Business criticality
 
-\- Data sensitivity
+- Data sensitivity
 
-\- Internet-facing exposure
+- Internet-facing exposure
 
-\- Existing safeguards
+- Existing safeguards
 
 
 
-!\[RiskLens Asset Inventory](docs/screenshots/2-assets.png)
+![RiskLens Asset Inventory](docs/screenshots/2-assets.png)
 
 
 
@@ -90,11 +90,11 @@ Maintaining an asset inventory establishes the foundation for the risk assessmen
 
 
 
-\---
+---
 
 
 
-\### Cybersecurity Risk Register
+### Cybersecurity Risk Register
 
 
 
@@ -106,33 +106,33 @@ Each risk can include information such as:
 
 
 
-\- Risk title
+- Risk title
 
-\- Associated asset
+- Associated asset
 
-\- Threat
+- Threat
 
-\- Vulnerability
+- Vulnerability
 
-\- Likelihood
+- Likelihood
 
-\- Impact
+- Impact
 
-\- Calculated risk score
+- Calculated risk score
 
-\- Severity
+- Severity
 
-\- Risk status
+- Risk status
 
-\- Mitigation information
-
-
-
-Risk scores are automatically calculated using a likelihood × impact methodology.
+- Mitigation information
 
 
 
-!\[RiskLens Cybersecurity Risk Register](docs/screenshots/3-risks.png)
+Risk scores are automatically calculated using a likelihood Ã— impact methodology.
+
+
+
+![RiskLens Cybersecurity Risk Register](docs/screenshots/3-risks.png)
 
 
 
@@ -140,11 +140,11 @@ This allows higher-risk issues to be identified and prioritized for remediation.
 
 
 
-\---
+---
 
 
 
-\### Risk-Control Mapping
+### Risk-Control Mapping
 
 
 
@@ -156,7 +156,7 @@ This allows RiskLens to show which safeguards are being used to reduce specific 
 
 
 
-!\[RiskLens Risk-Control Mapping](docs/screenshots/4-control-mapping.png)
+![RiskLens Risk-Control Mapping](docs/screenshots/4-control-mapping.png)
 
 
 
@@ -164,11 +164,11 @@ Risk-control mapping connects the risk assessment process with the organization'
 
 
 
-\---
+---
 
 
 
-\### Security Control Management
+### Security Control Management
 
 
 
@@ -180,19 +180,19 @@ Controls can be classified and monitored using information such as:
 
 
 
-\- Control name
+- Control name
 
-\- Control type
+- Control type
 
-\- Implementation status
+- Implementation status
 
-\- Framework mapping
+- Framework mapping
 
-\- Associated risks
+- Associated risks
 
 
 
-!\[RiskLens Security Controls](docs/screenshots/5-controls.png)
+![RiskLens Security Controls](docs/screenshots/5-controls.png)
 
 
 
@@ -200,11 +200,11 @@ Implementation states allow organizations to distinguish between controls that a
 
 
 
-\---
+---
 
 
 
-\## Framework Alignment
+## Framework Alignment
 
 
 
@@ -216,11 +216,11 @@ The current implementation supports mappings across:
 
 
 
-\- \*\*NIST Cybersecurity Framework\*\*
+- **NIST Cybersecurity Framework**
 
-\- \*\*ISO/IEC 27001\*\*
+- **ISO/IEC 27001**
 
-\- \*\*CIS Controls\*\*
+- **CIS Controls**
 
 
 
@@ -232,11 +232,11 @@ This allows the same control to demonstrate how it relates to multiple cybersecu
 
 
 
-\---
+---
 
 
 
-\## Cybersecurity Assessment Reports
+## Cybersecurity Assessment Reports
 
 
 
@@ -252,21 +252,21 @@ It includes:
 
 
 
-\- Assessment metrics
+- Assessment metrics
 
-\- Executive summary
+- Executive summary
 
-\- Priority cybersecurity risks
+- Priority cybersecurity risks
 
-\- Risk scores and severity
+- Risk scores and severity
 
-\- Risk treatment status
+- Risk treatment status
 
-\- Security-control implementation
+- Security-control implementation
 
-\- Framework mappings
+- Framework mappings
 
-\- Overall control coverage
+- Overall control coverage
 
 
 
@@ -274,11 +274,11 @@ Reports can also be exported as PDF documents.
 
 
 
-!\[RiskLens Cybersecurity Report Overview](docs/screenshots/6-reports-overview.png)
+![RiskLens Cybersecurity Report Overview](docs/screenshots/6-reports-overview.png)
 
 
 
-\### Priority Risk Analysis
+### Priority Risk Analysis
 
 
 
@@ -286,11 +286,11 @@ RiskLens prioritizes significant cybersecurity risks so that remediation efforts
 
 
 
-!\[RiskLens Priority Risks](docs/screenshots/7-reports-priority-risks.png)
+![RiskLens Priority Risks](docs/screenshots/7-reports-priority-risks.png)
 
 
 
-\### Security Control Assessment
+### Security Control Assessment
 
 
 
@@ -298,15 +298,15 @@ The report also provides visibility into implemented and planned safeguards toge
 
 
 
-!\[RiskLens Report Controls](docs/screenshots/8-reports-controls.png)
+![RiskLens Report Controls](docs/screenshots/8-reports-controls.png)
 
 
 
-\---
+---
 
 
 
-\## AI-Assisted Risk Mitigation
+## AI-Assisted Risk Mitigation
 
 
 
@@ -322,21 +322,21 @@ Information considered by the recommendation workflow can include:
 
 
 
-\- Asset information
+- Asset information
 
-\- Threat
+- Threat
 
-\- Vulnerability
+- Vulnerability
 
-\- Likelihood
+- Likelihood
 
-\- Impact
+- Impact
 
-\- Risk score
+- Risk score
 
-\- Risk severity
+- Risk severity
 
-\- Existing safeguards
+- Existing safeguards
 
 
 
@@ -344,7 +344,7 @@ The goal is to provide practical mitigation suggestions that can assist users wh
 
 
 
-\### Local Fallback Recommendation Engine
+### Local Fallback Recommendation Engine
 
 
 
@@ -356,13 +356,13 @@ If the external AI service becomes unavailable because of circumstances such as:
 
 
 
-\- Missing API credentials
+- Missing API credentials
 
-\- API quota exhaustion
+- API quota exhaustion
 
-\- Connectivity problems
+- Connectivity problems
 
-\- External service errors
+- External service errors
 
 
 
@@ -374,27 +374,27 @@ This design ensures that the core risk-management workflow does not depend entir
 
 
 
-\---
+---
 
 
 
-\## Risk Scoring Model
+## Risk Scoring Model
 
 
 
-RiskLens uses a likelihood × impact risk-scoring methodology.
+RiskLens uses a likelihood Ã— impact risk-scoring methodology.
 
 
 
 ```text
 
-Risk Score = Likelihood × Impact
+Risk Score = Likelihood Ã— Impact
 
 ```
 
 
 
-Likelihood and impact are rated on a \*\*1–5 scale\*\*.
+Likelihood and impact are rated on a **1â€“5 scale**.
 
 
 
@@ -410,7 +410,7 @@ Impact = 5
 
 
 
-Risk Score = 4 × 5 = 20
+Risk Score = 4 Ã— 5 = 20
 
 ```
 
@@ -424,13 +424,13 @@ The resulting score is converted into a risk severity.
 
 |---|---|
 
-| 1–5 | Low |
+| 1â€“5 | Low |
 
-| 6–10 | Medium |
+| 6â€“10 | Medium |
 
-| 11–15 | High |
+| 11â€“15 | High |
 
-| 16–25 | Critical |
+| 16â€“25 | Critical |
 
 
 
@@ -442,15 +442,15 @@ Risk scores are also represented visually through the dashboard risk heat map.
 
 
 
-\---
+---
 
 
 
-\# Architecture
+# Architecture
 
 
 
-!\[RiskLens GRC Architecture](docs/screenshots/ArchitectureImage.png)
+![RiskLens GRC Architecture](docs/screenshots/ArchitectureImage.png)
 
 
 
@@ -466,25 +466,25 @@ The backend is responsible for application business logic including:
 
 
 
-\- Authentication
+- Authentication
 
-\- Asset management
+- Asset management
 
-\- Risk management
+- Risk management
 
-\- Risk scoring
+- Risk scoring
 
-\- Security control management
+- Security control management
 
-\- Risk-control mapping
+- Risk-control mapping
 
-\- Dashboard analytics
+- Dashboard analytics
 
-\- Reporting
+- Reporting
 
-\- Audit logging
+- Audit logging
 
-\- AI-assisted mitigation recommendations
+- AI-assisted mitigation recommendations
 
 
 
@@ -496,91 +496,91 @@ External AI integration is isolated behind the backend rather than being called 
 
 
 
-\---
+---
 
 
 
-\## Technology Stack
+## Technology Stack
 
 
 
-\### Frontend
+### Frontend
 
 
 
-\- React
+- React
 
-\- JavaScript
+- JavaScript
 
-\- Vite
+- Vite
 
-\- Tailwind CSS
+- Tailwind CSS
 
-\- Axios
+- Axios
 
-\- React Router
+- React Router
 
-\- Recharts
+- Recharts
 
-\- Lucide React
-
-
-
-\### Backend
+- Lucide React
 
 
 
-\- Python
-
-\- FastAPI
-
-\- Pydantic
-
-\- SQLAlchemy
-
-\- REST API
-
-\- JWT authentication
-
-\- OpenAI API integration
+### Backend
 
 
 
-\### Database
+- Python
+
+- FastAPI
+
+- Pydantic
+
+- SQLAlchemy
+
+- REST API
+
+- JWT authentication
+
+- OpenAI API integration
 
 
 
-\- SQLite for local development
-
-\- PostgreSQL-ready architecture for future production deployment
+### Database
 
 
 
-\### Security
+- SQLite for local development
+
+- PostgreSQL-ready architecture for future production deployment
 
 
 
-\- JWT-based authentication
-
-\- Password hashing
-
-\- Protected API routes
-
-\- Environment-based secret management
-
-\- CORS configuration
-
-\- User-specific data access
-
-\- Audit logging
+### Security
 
 
 
-\---
+- JWT-based authentication
+
+- Password hashing
+
+- Protected API routes
+
+- Environment-based secret management
+
+- CORS configuration
+
+- User-specific data access
+
+- Audit logging
 
 
 
-\# Authentication and Authorization
+---
+
+
+
+# Authentication and Authorization
 
 
 
@@ -604,31 +604,31 @@ The authentication workflow can be summarized as:
 
 User Login
 
-&#x20;   ↓
+&#x20;   â†“
 
 Credentials sent to FastAPI
 
-&#x20;   ↓
+&#x20;   â†“
 
 Password verification
 
-&#x20;   ↓
+&#x20;   â†“
 
 JWT access token generated
 
-&#x20;   ↓
+&#x20;   â†“
 
 Token returned to frontend
 
-&#x20;   ↓
+&#x20;   â†“
 
 Token included with protected API requests
 
-&#x20;   ↓
+&#x20;   â†“
 
 Backend validates token
 
-&#x20;   ↓
+&#x20;   â†“
 
 Authorized resource access
 
@@ -644,11 +644,11 @@ This helps ensure that GRC information is associated with the appropriate authen
 
 
 
-\---
+---
 
 
 
-\# Audit Logging
+# Audit Logging
 
 
 
@@ -664,21 +664,21 @@ Examples of auditable activity include:
 
 
 
-\- Asset creation
+- Asset creation
 
-\- Asset modification
+- Asset modification
 
-\- Asset deletion
+- Asset deletion
 
-\- Risk creation
+- Risk creation
 
-\- Risk modification
+- Risk modification
 
-\- Risk deletion
+- Risk deletion
 
-\- Control changes
+- Control changes
 
-\- Risk-control mapping activity
+- Risk-control mapping activity
 
 
 
@@ -686,11 +686,11 @@ Audit logging is an important GRC capability because it provides accountability 
 
 
 
-\---
+---
 
 
 
-\# PDF Reporting
+# PDF Reporting
 
 
 
@@ -702,15 +702,15 @@ This allows assessment results to be shared outside the application with stakeho
 
 
 
-\- Management
+- Management
 
-\- Security teams
+- Security teams
 
-\- IT teams
+- IT teams
 
-\- Risk owners
+- Risk owners
 
-\- Auditors
+- Auditors
 
 
 
@@ -718,11 +718,11 @@ The exported report provides a portable representation of the organization's cur
 
 
 
-\---
+---
 
 
 
-\# Project Structure
+# Project Structure
 
 
 
@@ -730,99 +730,99 @@ The exported report provides a portable representation of the organization's cur
 
 RiskLens-GRC/
 
-│
+â”‚
 
-├── backend/
+â”œâ”€â”€ backend/
 
-│   ├── app/
+â”‚   â”œâ”€â”€ app/
 
-│   ├── .env
+â”‚   â”œâ”€â”€ .env
 
-│   ├── .env.example
+â”‚   â”œâ”€â”€ .env.example
 
-│   ├── requirements.txt
+â”‚   â”œâ”€â”€ requirements.txt
 
-│   └── seed\_demo.py
+â”‚   â””â”€â”€ seed_demo.py
 
-│
+â”‚
 
-├── docs/
+â”œâ”€â”€ docs/
 
-│   └── screenshots/
+â”‚   â””â”€â”€ screenshots/
 
-│       ├── 1-dashboard.png
+â”‚       â”œâ”€â”€ 1-dashboard.png
 
-│       ├── 2-assets.png
+â”‚       â”œâ”€â”€ 2-assets.png
 
-│       ├── 3-risks.png
+â”‚       â”œâ”€â”€ 3-risks.png
 
-│       ├── 4-control-mapping.png
+â”‚       â”œâ”€â”€ 4-control-mapping.png
 
-│       ├── 5-controls.png
+â”‚       â”œâ”€â”€ 5-controls.png
 
-│       ├── 6-reports-overview.png
+â”‚       â”œâ”€â”€ 6-reports-overview.png
 
-│       ├── 7-reports-priority-risks.png
+â”‚       â”œâ”€â”€ 7-reports-priority-risks.png
 
-│       ├── 8-reports-controls.png
+â”‚       â”œâ”€â”€ 8-reports-controls.png
 
-│       └── ArchitectureImage.png
+â”‚       â””â”€â”€ ArchitectureImage.png
 
-│
+â”‚
 
-├── frontend/
+â”œâ”€â”€ frontend/
 
-│   ├── public/
+â”‚   â”œâ”€â”€ public/
 
-│   ├── src/
+â”‚   â”œâ”€â”€ src/
 
-│   ├── .gitignore
+â”‚   â”œâ”€â”€ .gitignore
 
-│   ├── eslint.config.js
+â”‚   â”œâ”€â”€ eslint.config.js
 
-│   ├── index.html
+â”‚   â”œâ”€â”€ index.html
 
-│   ├── package-lock.json
+â”‚   â”œâ”€â”€ package-lock.json
 
-│   ├── package.json
+â”‚   â”œâ”€â”€ package.json
 
-│   ├── README.md
+â”‚   â”œâ”€â”€ README.md
 
-│   └── vite.config.js
+â”‚   â””â”€â”€ vite.config.js
 
-│
+â”‚
 
-├── sample-data/
+â”œâ”€â”€ sample-data/
 
-├── screenshots/
+â”œâ”€â”€ screenshots/
 
-├── .env
+â”œâ”€â”€ .env
 
-├── .env.example
+â”œâ”€â”€ .env.example
 
-├── .gitignore
+â”œâ”€â”€ .gitignore
 
-├── docker-compose.yml
+â”œâ”€â”€ docker-compose.yml
 
-└── README.md
+â””â”€â”€ README.md
 
 ```
 
 
 
-Generated or sensitive directories such as `node\_modules`, Python virtual environments, `.env` files, build artifacts, and local database files should not be committed to source control.
+Generated or sensitive directories such as `node_modules`, Python virtual environments, `.env` files, build artifacts, and local database files should not be committed to source control.
 
 
 
-\---
+---
 
 
 
-\# Running RiskLens Locally
+# Running RiskLens Locally
 
 
 
-\## Prerequisites
+## Prerequisites
 
 
 
@@ -830,21 +830,21 @@ Before running RiskLens, install:
 
 
 
-\- Python 3
+- Python 3
 
-\- Node.js
+- Node.js
 
-\- npm
+- npm
 
-\- Git
-
-
-
-\---
+- Git
 
 
 
-\## 1. Clone the Repository
+---
+
+
+
+## 1. Clone the Repository
 
 
 
@@ -862,11 +862,11 @@ Replace `<repository-url>` with the GitHub repository URL.
 
 
 
-\---
+---
 
 
 
-\## 2. Backend Setup
+## 2. Backend Setup
 
 
 
@@ -886,7 +886,7 @@ Create a Python virtual environment.
 
 
 
-\### Windows
+### Windows
 
 
 
@@ -900,7 +900,7 @@ venv\\Scripts\\activate
 
 
 
-\### macOS / Linux
+### macOS / Linux
 
 
 
@@ -926,11 +926,11 @@ pip install -r requirements.txt
 
 
 
-\---
+---
 
 
 
-\## 3. Configure Environment Variables
+## 3. Configure Environment Variables
 
 
 
@@ -976,9 +976,9 @@ Example:
 
 ```env
 
-JWT\_SECRET=replace\_with\_a\_secure\_random\_secret
+JWT_SECRET=replace_with_a_secure_random_secret
 
-OPENAI\_API\_KEY=
+OPENAI_API_KEY=
 
 ```
 
@@ -988,7 +988,7 @@ The AI API key is optional when using the local fallback recommendation mechanis
 
 
 
-\### Important
+### Important
 
 
 
@@ -1000,11 +1000,11 @@ Files containing secrets should remain excluded through `.gitignore`.
 
 
 
-\---
+---
 
 
 
-\## 4. Start the FastAPI Backend
+## 4. Start the FastAPI Backend
 
 
 
@@ -1044,11 +1044,11 @@ http://127.0.0.1:8001/docs
 
 
 
-\---
+---
 
 
 
-\## 5. Frontend Setup
+## 5. Frontend Setup
 
 
 
@@ -1104,11 +1104,11 @@ http://localhost:5173
 
 
 
-\---
+---
 
 
 
-\# Demo Data
+# Demo Data
 
 
 
@@ -1118,7 +1118,7 @@ RiskLens includes a demo-data seeding script:
 
 ```text
 
-backend/seed\_demo.py
+backend/seed_demo.py
 
 ```
 
@@ -1134,7 +1134,7 @@ From the backend directory, run:
 
 ```bash
 
-python seed\_demo.py
+python seed_demo.py
 
 ```
 
@@ -1144,15 +1144,15 @@ The demo environment can include example:
 
 
 
-\- Assets
+- Assets
 
-\- Cybersecurity risks
+- Cybersecurity risks
 
-\- Security controls
+- Security controls
 
-\- Framework mappings
+- Framework mappings
 
-\- Risk-control relationships
+- Risk-control relationships
 
 
 
@@ -1160,11 +1160,11 @@ This makes the dashboard, risk heat map, reporting system, and other GRC functio
 
 
 
-\---
+---
 
 
 
-\# Example GRC Workflow
+# Example GRC Workflow
 
 
 
@@ -1176,43 +1176,43 @@ A typical RiskLens assessment workflow follows this process:
 
 Register Organizational Asset
 
-&#x20;           ↓
+&#x20;           â†“
 
 Identify Cybersecurity Risk
 
-&#x20;           ↓
+&#x20;           â†“
 
 Document Threat and Vulnerability
 
-&#x20;           ↓
+&#x20;           â†“
 
 Assign Likelihood and Impact
 
-&#x20;           ↓
+&#x20;           â†“
 
 Calculate Risk Score
 
-&#x20;           ↓
+&#x20;           â†“
 
 Determine Risk Severity
 
-&#x20;           ↓
+&#x20;           â†“
 
 Review Mitigation Recommendation
 
-&#x20;           ↓
+&#x20;           â†“
 
 Map Security Controls
 
-&#x20;           ↓
+&#x20;           â†“
 
 Track Control Implementation
 
-&#x20;           ↓
+&#x20;           â†“
 
 Monitor Dashboard and Risk Heat Map
 
-&#x20;           ↓
+&#x20;           â†“
 
 Generate Cybersecurity Assessment Report
 
@@ -1224,11 +1224,11 @@ This workflow connects asset management, risk assessment, security controls, and
 
 
 
-\---
+---
 
 
 
-\# Security Considerations
+# Security Considerations
 
 
 
@@ -1240,23 +1240,23 @@ These include:
 
 
 
-\- Secure password hashing
+- Secure password hashing
 
-\- JWT-based authentication
+- JWT-based authentication
 
-\- Protected backend API endpoints
+- Protected backend API endpoints
 
-\- Environment-based secret management
+- Environment-based secret management
 
-\- Explicit CORS configuration
+- Explicit CORS configuration
 
-\- User-specific resource access
+- User-specific resource access
 
-\- Audit logging
+- Audit logging
 
-\- AI service isolation behind the backend
+- AI service isolation behind the backend
 
-\- Local fallback behavior when the external AI service is unavailable
+- Local fallback behavior when the external AI service is unavailable
 
 
 
@@ -1268,37 +1268,37 @@ Examples include:
 
 
 
-\- HTTPS enforcement
+- HTTPS enforcement
 
-\- Secure HTTP-only authentication cookies
+- Secure HTTP-only authentication cookies
 
-\- Production secrets management
+- Production secrets management
 
-\- Rate limiting
+- Rate limiting
 
-\- Multi-factor authentication
+- Multi-factor authentication
 
-\- Centralized security logging
+- Centralized security logging
 
-\- Database encryption
+- Database encryption
 
-\- Automated backups
+- Automated backups
 
-\- Monitoring and alerting
+- Monitoring and alerting
 
-\- Dependency vulnerability scanning
+- Dependency vulnerability scanning
 
-\- Production PostgreSQL infrastructure
+- Production PostgreSQL infrastructure
 
-\- Stronger role and permission management
-
-
-
-\---
+- Stronger role and permission management
 
 
 
-\# GRC Concepts Demonstrated
+---
+
+
+
+# GRC Concepts Demonstrated
 
 
 
@@ -1306,69 +1306,69 @@ RiskLens demonstrates several concepts commonly found in Governance, Risk, and C
 
 
 
-\### Governance
+### Governance
 
 
 
-\- Security-control tracking
+- Security-control tracking
 
-\- Framework alignment
+- Framework alignment
 
-\- Accountability through audit records
+- Accountability through audit records
 
-\- Cybersecurity reporting
-
-
-
-\### Risk Management
+- Cybersecurity reporting
 
 
 
-\- Asset identification
-
-\- Threat identification
-
-\- Vulnerability documentation
-
-\- Likelihood assessment
-
-\- Impact assessment
-
-\- Risk scoring
-
-\- Risk prioritization
-
-\- Risk treatment tracking
-
-\- Mitigation recommendations
+### Risk Management
 
 
 
-\### Compliance and Control Management
+- Asset identification
+
+- Threat identification
+
+- Vulnerability documentation
+
+- Likelihood assessment
+
+- Impact assessment
+
+- Risk scoring
+
+- Risk prioritization
+
+- Risk treatment tracking
+
+- Mitigation recommendations
 
 
 
-\- Security-control inventory
-
-\- Control implementation status
-
-\- Risk-control relationships
-
-\- NIST CSF mapping
-
-\- ISO/IEC 27001 mapping
-
-\- CIS Controls mapping
-
-\- Control coverage reporting
+### Compliance and Control Management
 
 
 
-\---
+- Security-control inventory
+
+- Control implementation status
+
+- Risk-control relationships
+
+- NIST CSF mapping
+
+- ISO/IEC 27001 mapping
+
+- CIS Controls mapping
+
+- Control coverage reporting
 
 
 
-\# Current Scope
+---
+
+
+
+# Current Scope
 
 
 
@@ -1380,23 +1380,23 @@ The current implementation focuses primarily on:
 
 
 
-\- Asset inventory
+- Asset inventory
 
-\- Cybersecurity risk assessment
+- Cybersecurity risk assessment
 
-\- Risk scoring
+- Risk scoring
 
-\- Risk visualization
+- Risk visualization
 
-\- Security controls
+- Security controls
 
-\- Framework mapping
+- Framework mapping
 
-\- AI-assisted mitigation
+- AI-assisted mitigation
 
-\- Auditability
+- Auditability
 
-\- Cybersecurity reporting
+- Cybersecurity reporting
 
 
 
@@ -1404,11 +1404,11 @@ It is not intended to replace enterprise GRC platforms or formal cybersecurity a
 
 
 
-\---
+---
 
 
 
-\# Future Improvements
+# Future Improvements
 
 
 
@@ -1416,67 +1416,67 @@ Potential future improvements include:
 
 
 
-\- PostgreSQL production deployment
+- PostgreSQL production deployment
 
-\- Role-Based Access Control
+- Role-Based Access Control
 
-\- Organization-level accounts
+- Organization-level accounts
 
-\- Multi-tenant architecture
+- Multi-tenant architecture
 
-\- Evidence attachments for controls
+- Evidence attachments for controls
 
-\- Risk owners
+- Risk owners
 
-\- Control owners
+- Control owners
 
-\- Risk treatment deadlines
+- Risk treatment deadlines
 
-\- Residual risk calculations
+- Residual risk calculations
 
-\- Risk acceptance workflows
+- Risk acceptance workflows
 
-\- Approval workflows
+- Approval workflows
 
-\- Additional cybersecurity frameworks
+- Additional cybersecurity frameworks
 
-\- Compliance gap analysis
+- Compliance gap analysis
 
-\- Advanced audit-log viewer
+- Advanced audit-log viewer
 
-\- Email security notifications
+- Email security notifications
 
-\- Multi-factor authentication
+- Multi-factor authentication
 
-\- Automated vulnerability imports
+- Automated vulnerability imports
 
-\- Vulnerability scanner integrations
+- Vulnerability scanner integrations
 
-\- Cloud security integrations
+- Cloud security integrations
 
-\- Dashboard trend analysis
+- Dashboard trend analysis
 
-\- Historical risk metrics
+- Historical risk metrics
 
-\- Automated testing
+- Automated testing
 
-\- CI/CD pipelines
+- CI/CD pipelines
 
-\- Containerized production deployment
+- Containerized production deployment
 
-\- Cloud deployment
-
-
-
-\---
+- Cloud deployment
 
 
 
-\# Project Purpose
+---
 
 
 
-RiskLens GRC was developed as a cybersecurity portfolio project demonstrating the intersection of \*\*cybersecurity, GRC, and software engineering\*\*.
+# Project Purpose
+
+
+
+RiskLens GRC was developed as a cybersecurity portfolio project demonstrating the intersection of **cybersecurity, GRC, and software engineering**.
 
 
 
@@ -1484,37 +1484,37 @@ The project demonstrates practical experience with:
 
 
 
-\- Governance, Risk, and Compliance
+- Governance, Risk, and Compliance
 
-\- Cybersecurity risk assessments
+- Cybersecurity risk assessments
 
-\- Asset inventories
+- Asset inventories
 
-\- Risk registers
+- Risk registers
 
-\- Likelihood and impact analysis
+- Likelihood and impact analysis
 
-\- Risk scoring
+- Risk scoring
 
-\- Risk heat maps
+- Risk heat maps
 
-\- Security control management
+- Security control management
 
-\- Cybersecurity framework mapping
+- Cybersecurity framework mapping
 
-\- Risk treatment
+- Risk treatment
 
-\- Secure authentication
+- Secure authentication
 
-\- Audit logging
+- Audit logging
 
-\- AI integration
+- AI integration
 
-\- REST API development
+- REST API development
 
-\- Full-stack application development
+- Full-stack application development
 
-\- Cybersecurity reporting
+- Cybersecurity reporting
 
 
 
@@ -1522,11 +1522,11 @@ The objective is to demonstrate how software can be used to support practical cy
 
 
 
-\---
+---
 
 
 
-\# Disclaimer
+# Disclaimer
 
 
 
@@ -1546,15 +1546,15 @@ They should not be interpreted as:
 
 
 
-\- Formal regulatory compliance verification
+- Formal regulatory compliance verification
 
-\- Professional cybersecurity certification
+- Professional cybersecurity certification
 
-\- Legal advice
+- Legal advice
 
-\- Audit assurance
+- Audit assurance
 
-\- A replacement for a professional security assessment
+- A replacement for a professional security assessment
 
 
 
@@ -1562,19 +1562,20 @@ Organizations should validate cybersecurity decisions against their own requirem
 
 
 
-\---
+---
 
 
 
-\# Author
+# Author
 
 
 
-\*\*Lalith\*\*
+**Lalith**
 
 
 
 Computing Science  
 
 Cybersecurity | GRC | Cloud Security
+
 
