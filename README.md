@@ -1,4 +1,4 @@
-﻿# RiskLens GRC
+# RiskLens GRC
 
 
 
@@ -40,7 +40,7 @@ The dashboard provides visibility into:
 
 - Security control coverage
 
-- Likelihood Ã— impact risk heat map
+- Likelihood × impact risk heat map
 
 - Priority cybersecurity risks
 
@@ -128,7 +128,7 @@ Each risk can include information such as:
 
 
 
-Risk scores are automatically calculated using a likelihood Ã— impact methodology.
+Risk scores are automatically calculated using a likelihood × impact methodology.
 
 
 
@@ -382,19 +382,19 @@ This design ensures that the core risk-management workflow does not depend entir
 
 
 
-RiskLens uses a likelihood Ã— impact risk-scoring methodology.
+RiskLens uses a likelihood × impact risk-scoring methodology.
 
 
 
 ```text
 
-Risk Score = Likelihood Ã— Impact
+Risk Score = Likelihood × Impact
 
 ```
 
 
 
-Likelihood and impact are rated on a **1â€“5 scale**.
+Likelihood and impact are rated on a **1–5 scale**.
 
 
 
@@ -410,7 +410,7 @@ Impact = 5
 
 
 
-Risk Score = 4 Ã— 5 = 20
+Risk Score = 4 × 5 = 20
 
 ```
 
@@ -421,16 +421,11 @@ The resulting score is converted into a risk severity.
 
 
 | Risk Score | Severity |
-
 |---|---|
-
-| 1â€“5 | Low |
-
-| 6â€“10 | Medium |
-
-| 11â€“15 | High |
-
-| 16â€“25 | Critical |
+| 1–5 | Low |
+| 6–10 | Medium |
+| 11–15 | High |
+| 16–25 | Critical |
 
 
 
@@ -604,31 +599,31 @@ The authentication workflow can be summarized as:
 
 User Login
 
-&#x20;   â†“
+&#x20;   ↓
 
 Credentials sent to FastAPI
 
-&#x20;   â†“
+&#x20;   ↓
 
 Password verification
 
-&#x20;   â†“
+&#x20;   ↓
 
 JWT access token generated
 
-&#x20;   â†“
+&#x20;   ↓
 
 Token returned to frontend
 
-&#x20;   â†“
+&#x20;   ↓
 
 Token included with protected API requests
 
-&#x20;   â†“
+&#x20;   ↓
 
 Backend validates token
 
-&#x20;   â†“
+&#x20;   ↓
 
 Authorized resource access
 
@@ -730,81 +725,81 @@ The exported report provides a portable representation of the organization's cur
 
 RiskLens-GRC/
 
-â”‚
+│
 
-â”œâ”€â”€ backend/
+├── backend/
 
-â”‚   â”œâ”€â”€ app/
+│   ├── app/
 
-â”‚   â”œâ”€â”€ .env
+│   ├── .env
 
-â”‚   â”œâ”€â”€ .env.example
+│   ├── .env.example
 
-â”‚   â”œâ”€â”€ requirements.txt
+│   ├── requirements.txt
 
-â”‚   â””â”€â”€ seed_demo.py
+│   └── seed_demo.py
 
-â”‚
+│
 
-â”œâ”€â”€ docs/
+├── docs/
 
-â”‚   â””â”€â”€ screenshots/
+│   └── screenshots/
 
-â”‚       â”œâ”€â”€ 1-dashboard.png
+│       ├── 1-dashboard.png
 
-â”‚       â”œâ”€â”€ 2-assets.png
+│       ├── 2-assets.png
 
-â”‚       â”œâ”€â”€ 3-risks.png
+│       ├── 3-risks.png
 
-â”‚       â”œâ”€â”€ 4-control-mapping.png
+│       ├── 4-control-mapping.png
 
-â”‚       â”œâ”€â”€ 5-controls.png
+│       ├── 5-controls.png
 
-â”‚       â”œâ”€â”€ 6-reports-overview.png
+│       ├── 6-reports-overview.png
 
-â”‚       â”œâ”€â”€ 7-reports-priority-risks.png
+│       ├── 7-reports-priority-risks.png
 
-â”‚       â”œâ”€â”€ 8-reports-controls.png
+│       ├── 8-reports-controls.png
 
-â”‚       â””â”€â”€ ArchitectureImage.png
+│       └── ArchitectureImage.png
 
-â”‚
+│
 
-â”œâ”€â”€ frontend/
+├── frontend/
 
-â”‚   â”œâ”€â”€ public/
+│   ├── public/
 
-â”‚   â”œâ”€â”€ src/
+│   ├── src/
 
-â”‚   â”œâ”€â”€ .gitignore
+│   ├── .gitignore
 
-â”‚   â”œâ”€â”€ eslint.config.js
+│   ├── eslint.config.js
 
-â”‚   â”œâ”€â”€ index.html
+│   ├── index.html
 
-â”‚   â”œâ”€â”€ package-lock.json
+│   ├── package-lock.json
 
-â”‚   â”œâ”€â”€ package.json
+│   ├── package.json
 
-â”‚   â”œâ”€â”€ README.md
+│   ├── README.md
 
-â”‚   â””â”€â”€ vite.config.js
+│   └── vite.config.js
 
-â”‚
+│
 
-â”œâ”€â”€ sample-data/
+├── sample-data/
 
-â”œâ”€â”€ screenshots/
+├── screenshots/
 
-â”œâ”€â”€ .env
+├── .env
 
-â”œâ”€â”€ .env.example
+├── .env.example
 
-â”œâ”€â”€ .gitignore
+├── .gitignore
 
-â”œâ”€â”€ docker-compose.yml
+├── docker-compose.yml
 
-â””â”€â”€ README.md
+└── README.md
 
 ```
 
@@ -1176,43 +1171,43 @@ A typical RiskLens assessment workflow follows this process:
 
 Register Organizational Asset
 
-&#x20;           â†“
+&#x20;           ↓
 
 Identify Cybersecurity Risk
 
-&#x20;           â†“
+&#x20;           ↓
 
 Document Threat and Vulnerability
 
-&#x20;           â†“
+&#x20;           ↓
 
 Assign Likelihood and Impact
 
-&#x20;           â†“
+&#x20;           ↓
 
 Calculate Risk Score
 
-&#x20;           â†“
+&#x20;           ↓
 
 Determine Risk Severity
 
-&#x20;           â†“
+&#x20;           ↓
 
 Review Mitigation Recommendation
 
-&#x20;           â†“
+&#x20;           ↓
 
 Map Security Controls
 
-&#x20;           â†“
+&#x20;           ↓
 
 Track Control Implementation
 
-&#x20;           â†“
+&#x20;           ↓
 
 Monitor Dashboard and Risk Heat Map
 
-&#x20;           â†“
+&#x20;           ↓
 
 Generate Cybersecurity Assessment Report
 
@@ -1577,5 +1572,6 @@ Organizations should validate cybersecurity decisions against their own requirem
 Computing Science  
 
 Cybersecurity | GRC | Cloud Security
+
 
 
