@@ -599,31 +599,31 @@ The authentication workflow can be summarized as:
 
 User Login
 
-&#x20;   ↓
+   ↓
 
 Credentials sent to FastAPI
 
-&#x20;   ↓
+   ↓
 
 Password verification
 
-&#x20;   ↓
+   ↓
 
 JWT access token generated
 
-&#x20;   ↓
+   ↓
 
 Token returned to frontend
 
-&#x20;   ↓
+   ↓
 
 Token included with protected API requests
 
-&#x20;   ↓
+   ↓
 
 Backend validates token
 
-&#x20;   ↓
+   ↓
 
 Authorized resource access
 
@@ -1171,43 +1171,43 @@ A typical RiskLens assessment workflow follows this process:
 
 Register Organizational Asset
 
-&#x20;           ↓
+           ↓
 
 Identify Cybersecurity Risk
 
-&#x20;           ↓
+           ↓
 
 Document Threat and Vulnerability
 
-&#x20;           ↓
+           ↓
 
 Assign Likelihood and Impact
 
-&#x20;           ↓
+           ↓
 
 Calculate Risk Score
 
-&#x20;           ↓
+           ↓
 
 Determine Risk Severity
 
-&#x20;           ↓
+           ↓
 
 Review Mitigation Recommendation
 
-&#x20;           ↓
+           ↓
 
 Map Security Controls
 
-&#x20;           ↓
+           ↓
 
 Track Control Implementation
 
-&#x20;           ↓
+           ↓
 
 Monitor Dashboard and Risk Heat Map
 
-&#x20;           ↓
+           ↓
 
 Generate Cybersecurity Assessment Report
 
